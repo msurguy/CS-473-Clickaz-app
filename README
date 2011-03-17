@@ -1,0 +1,30 @@
+== Welcome to Clickaz Web App built in Ruby on Rails
+
+Authors: Maksim Surguy and Cesar Acosta
+March 14, 2011
+CS 473 Class @ CSUF
+
+This application simulates the operation of Clickers used in schools and colleges to get immediate response and feedback from users. 
+It is similar to an online survey where each question has 4 choices and the user has to make one choice submit it.
+
+== Using Clickaz Web App
+
+To use the app the user has to go to application's root.
+The user will be presented with a list of questions. Then the user has to click on 'Respond' to respond to specific question.
+On the next screen, the user will choose the answer to the question and identify himself by checking appropriate radio button. 
+After the choice is made, the user will save the response by clicking on "Update response" button.
+
+To view the global results of the polling, the user may click on "Show Results".
+
+== Application URL structure 
+
+root - presents the list of questions
+root/questions/list  - same as root
+root/responses/list - presents the results of polling
+
+== Management
+
+/questions       -   to add/edit/delete the questions for the survey
+/responses 	  -   to add/edit/delete specific user responses (this is not the same as polling!)
+/answers		  -   to add/edit/delete the answers for each question
+/users	          -  to add/edit/delete the users (by default 9 users are created)
