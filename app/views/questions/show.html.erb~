@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<b>Question <%= @question.id %> :</b>
+  <%= @question.question_text %>
+</p>
+<% count = 1 %>
+  <% @answers.each do |answer| %>   
+   <p><%= count.to_s +' : ' + answer.answer_text %></p>
+    <% count += 1 %>
+  <% end %>
+
+  <%= render 'responseform' %>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back to List', questions_path %> |
+<% if @nextquestion %>
+  <%= link_to 'Next Question', Question.find(@nextquestion.id) %>
+<% end %>

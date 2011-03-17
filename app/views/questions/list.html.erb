@@ -1,0 +1,16 @@
+<h2>Listing questions</h2>
+
+<table>
+  <tr>
+    <th>Question text</th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.question_text %></td>
+    <td><%= link_to 'Respond', question %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Show Results', :controller => "responses", :action => "list" %>

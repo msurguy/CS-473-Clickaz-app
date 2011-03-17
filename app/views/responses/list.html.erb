@@ -1,0 +1,36 @@
+<h1>Listing Responses</h1>
+
+<% @questions.each do |question| %>
+    <strong>
+    <%= question.id %> : <%= question.question_text %></strong>
+  <% respcount = 0 %>
+  <% totcount = 0.0 %>
+      <% @responses.each do |counts| %>
+        <% if counts.question_id == question.id %>
+         <% totcount += 1 %>
+       <% end %>
+     <% end %>
+    <% @answers.each do |ans| %>
+      <% if ans.question_id == question.id then %>
+        <% respcount += 1 %>
+        <p style="margin-left: 100px;"><%= respcount %> : <%= ans.answer_text %>   | Responses - 
+		<% intcount = 0 %>
+      <% @responses.each do |resp| %>
+        <% if resp.question_id == question.id %>
+         <% intcount += 1 if resp.answer.to_i == respcount %>
+        <% end %>
+      <% end %>
+      <%= intcount %> | <strong>
+      <% if totcount > 0 %>
+        <% perc = (100*intcount/totcount).to_i %>
+        <%= perc %>%
+       <% else %>
+         <% perc=0 %> 0%
+       <% end %>
+     </strong> </p><div style="margin-left: 100px; width:600px; height:20px; background-color:#FFFF00;"><div style="width:<%= perc %>%; height:20px;background-color:#FF9900; border-right:1px #FFF solid;"></div></div>     
+     <% end %>
+  <% end %>
+   <hr />
+  <% end %>
+
+<%= link_to 'Go to the List of Questions', root_url %>
